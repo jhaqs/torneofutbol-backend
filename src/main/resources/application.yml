@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: torneofutbol
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/torneofutbol?useSSL=false&serverTimezone=America/Lima&allowPublicKeyRetrieval=true
+    username: root
+    password: a123456A
+    #username: ${DB_USERNAME:root}
+    #password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: America/Lima
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+almacenamiento:
+  escudos:
+    directorio: ${ESCUDOS_DIR:uploads/equipos}
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.springframework.web: DEBUG
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.orm.jpa: DEBUG
+    org.springframework.transaction: TRACE
+    org.springframework.http.converter.json: DEBUG
+    org.springframework.boot.autoconfigure.web: DEBUG
